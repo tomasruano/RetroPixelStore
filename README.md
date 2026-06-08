@@ -50,7 +50,7 @@ python mainTPO.py
 
 ## Estructura del Proyecto
 
-text
+```text
 RetroPixelStore/
 │
 ├── mainTPO.py
@@ -58,6 +58,7 @@ RetroPixelStore/
 ├── DatosTPO.py
 ├── MenusTPO.py
 └── README.md
+```
 
 ---
 
