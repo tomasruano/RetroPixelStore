@@ -122,13 +122,17 @@ Durante el desarrollo se utilizaron los siguientes conceptos:
 * Gaspar Divano
 * Ignacio Diaz
 * Tomas Sobrino
-- Agustin Fani
+* Agustin Fani
 ---
 
 ## Distribución de Tareas
 
-Todos los integrantes contribuimos en cada función
-
+Todos los integrantes contribuimos en cada función pero se asignaron los siguientes responsables principales para cada bloque funcional:
+* Agustín Fani: Eliminar producto
+* Tomas Ruano: Registrar producto 
+* Tomas Sobrino: Modificar producto
+* Ignacio Díaz: Buscar índice, main y menús 
+* Gaspar Divano: Informe general
 ---
 
 ## Decisiones de Diseño
@@ -137,6 +141,11 @@ Todos los integrantes contribuimos en cada función
 -Se validaron todas las entradas del usuario con ciclos while, usando listas de opciones predefinidas para evitar datos inválidos.
 -Se implementó una función auxiliar buscar_indice reutilizable debido a que no se podía usar la función index().
 -Para el informe general, las listas se convierten en una matriz temporal para aplicar el ordenamiento burbuja sin modificar los datos originales.
+
+---
+## Repositorio GitHub
+
+https://github.com/tomasruano/RetroPixelStore
 
 ---
 
