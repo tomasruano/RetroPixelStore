@@ -1,6 +1,6 @@
 # RetroPixel Store
 
-Sistema de gestión de alquiler y venta de productos de entretenimiento desarrollado en Python.
+Sistema de gestión de productos de entretenimiento desarrollado en Python.
 
 ---
 
@@ -14,12 +14,10 @@ El propósito del programa es centralizar la administración de películas y vid
 
 Las principales funcionalidades implementadas son:
 
-* Alta de productos.
-* Baja de productos.
-* Modificación de productos.
+* Alta de productos mediante carga manual o aleatoria.
+* Baja de productos con validación de eliminación.
+* Modificación de productos existentes.
 * Visualización general del catálogo.
-* Generación automática de productos para pruebas.
-* Ordenamiento de productos según stock disponible y en caso de igualdad según orden alfabético.
 
 ---
 
@@ -43,8 +41,9 @@ Para ejecutar el proyecto se requiere:
 
 Ejecutar el siguiente comando:
 
-bash
+```bash
 python mainTPO.py
+```
 
 ---
 
@@ -66,33 +65,81 @@ RetroPixelStore/
 
 ### mainTPO.py
 
-Contiene el programa principal y controla el flujo general de ejecución mediante el menú interactivo.
+Contiene el programa principal y controla el flujo general de ejecución mediante un menú interactivo.
+
+Funciones principales:
+
+* Inicialización de los datos del sistema.
+* Ejecución del menú principal.
+* Control de las operaciones de alta, baja, modificación e informe.
+
+---
 
 ### FuncionesTPO.py
 
-Contiene las funciones encargadas de realizar las operaciones principales del sistema:
+Contiene la lógica principal del sistema.
 
-* Registrar productos.
-* Eliminar productos.
-* Modificar productos.
-* Generar el informe general.
-* Buscar elementos dentro de las listas.
+Incluye funciones para:
+
+#### Registro de productos
+
+* Registro manual de productos.
+* Registro aleatorio de productos.
+* Generación de datos aleatorios.
+* Validación de títulos duplicados.
+
+#### Eliminación de productos
+
+* Verificación de productos eliminables.
+* Confirmación de eliminación.
+* Eliminación segura de registros.
+
+#### Modificación de productos
+
+* Búsqueda de productos por título.
+* Selección de atributos a modificar.
+* Actualización de información.
+
+#### Informe General
+
+* Conversión de listas paralelas en una matriz.
+* Ordenamiento burbuja por stock.
+* Visualización tabulada de productos.
+
+#### Funciones auxiliares
+
+* Búsqueda secuencial.
+* Validación de enteros.
+* Validación de números reales.
+* Validación de opciones.
+* Verificación de existencia en listas.
+* Almacenamiento de nuevos productos.
+
+---
 
 ### DatosTPO.py
 
 Contiene:
 
-* Las listas paralelas donde se almacenan los productos registrados.
+* Los productos precargados en el sistema.
+* Las listas paralelas utilizadas para almacenar la información.
 * Las opciones válidas para cada atributo.
 * Los datos utilizados para la generación aleatoria de productos.
+
+---
 
 ### MenusTPO.py
 
 Contiene las funciones encargadas de mostrar los distintos menús utilizados por el sistema.
 
+Incluye:
+
+* Menú principal.
+* Menú de modificación de atributos.
+
 ---
 
-## Tecnologías Utilizadas (hasta ahora)
+## Tecnologías Utilizadas
 
 * Python
 * random
@@ -104,16 +151,20 @@ Contiene las funciones encargadas de mostrar los distintos menús utilizados por
 Durante el desarrollo se utilizaron los siguientes conceptos:
 
 * Variables
-* Entrada y salida de datos
+* Funciones
+* Modularización
+* Parámetros
+* Retorno de valores
+* Listas
+* Listas paralelas
+* Matrices
 * Estructuras condicionales
 * Ciclos repetitivos
-* Funciones
-* Listas
-* Matrices
-* Modularización
 * Validación de datos
-* Ordenamiento de datos
 * Búsqueda secuencial
+* Ordenamiento burbuja
+* Generación aleatoria de datos
+* Manipulación de listas mediante append() y pop()
 
 ---
 
@@ -124,34 +175,62 @@ Durante el desarrollo se utilizaron los siguientes conceptos:
 * Ignacio Diaz
 * Tomas Sobrino
 * Agustin Fani
+
 ---
 
 ## Distribución de Tareas
 
-Todos los integrantes contribuimos en cada función pero se asignaron los siguientes responsables principales para cada bloque funcional:
-* Agustín Fani: Eliminar producto
-* Tomas Ruano: Registrar producto 
-* Tomas Sobrino: Modificar producto
-* Ignacio Díaz: Buscar índice, main y menús 
-* Gaspar Divano: Informe general
+### Tomas Ruano
+
+* Registro manual de productos.
+* Registro aleatorio de productos.
+* Funciones de búsqueda y validación.
+* Control de títulos duplicados.
+
+### Gaspar Divano
+
+* Creación de datos iniciales.
+* Generación del informe general.
+* Conversión de listas paralelas a matriz.
+* Ordenamiento burbuja.
+
+### Ignacio Diaz
+
+* Menú principal.
+* Flujo principal del programa.
+* Validación de números reales.
+* Funciones auxiliares para carga de productos.
+
+### Tomas Sobrino
+
+* Modificación de productos.
+* Aplicación de cambios en atributos.
+* Validación de opciones.
+* Almacenamiento de productos.
+
+### Agustin Fani
+
+* Eliminación de productos.
+* Verificación de productos eliminables.
+* Eliminación por índice.
+* Obtención de datos para generación aleatoria.
+
 ---
 
 ## Decisiones de Diseño
 
--Se separó el código en cuatro módulos según su responsabilidad: datos, funciones, menús y programa principal.
--Se validaron todas las entradas del usuario con ciclos while, usando listas de opciones predefinidas para evitar datos inválidos.
--Se implementó una función auxiliar buscar_indice reutilizable debido a que no se podía usar la función index().
--Para el informe general, las listas se convierten en una matriz temporal para aplicar el ordenamiento burbuja sin modificar los datos originales.
-
----
-## Repositorio GitHub
-
-https://github.com/tomasruano/RetroPixelStore
+* Se separó el proyecto en módulos independientes para mejorar la organización y mantenimiento del código.
+* Se utilizaron listas paralelas para almacenar la información de los productos.
+* Se implementó una función propia de búsqueda debido a la restricción de no utilizar index().
+* Se validaron todas las entradas del usuario mediante estructuras repetitivas.
+* Se impidió el registro de productos con títulos duplicados.
+* Se creó una matriz temporal para generar el informe sin modificar las listas originales.
+* Se implementó un ordenamiento burbuja para mostrar los productos según su stock disponible.
 
 ---
 
 ## Licencia
 
-Proyecto académico desarrollado para una asignatura de programación (Pensamiento Computacional, Algoritmia y Programación).
+Proyecto académico desarrollado para la asignatura Pensamiento Computacional, Algoritmia y Programación.
 
 Su finalidad es exclusivamente educativa.
